@@ -16,8 +16,25 @@ class TextureManager {
 public:
 	vector<TextureElement*> elements;
 
-	void LoadTexture(const TCHAR* name, int id);
-	TextureElement* GetTexture(const int id);
+	void LoadTexture(const TCHAR* name, int id) {
+		TextureElement* newElement = new TextureElement();
+		newElement->id = id;
+
+		//Create sprite
+		D3DXCreateSprite(g_pd3dDevice, &newElement->Sprite);
+		//Create Texture
+		D3DXCreateTextureFromFile(g_pd3dDevice, name, &newElement->Texture);
+
+		elements.push_back(newElement);
+	}
+	TextureElement* GetTexture(const int id) {
+		for (int i = 0; i < elements.size(); i++) {
+			if (id == elements[i]->id) {
+				return elements[i];
+			}
+		}
+		return nullptr;
+	}
 
 	//void UnloadTexture();
 

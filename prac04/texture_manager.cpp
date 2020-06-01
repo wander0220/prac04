@@ -9,7 +9,6 @@ void TextureManager::LoadTexture(const TCHAR* name, int id) {
 	//Create Texture
 	D3DXCreateTextureFromFile(g_pd3dDevice, name, &newElement->Texture);
 
-
 	elements.push_back(newElement);
 }
 TextureElement* TextureManager::GetTexture(const int id) {
