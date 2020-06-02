@@ -28,8 +28,7 @@ LPDIRECT3DDEVICE9       g_pd3dDevice = NULL;
 
 TextureManager textureManager;
 InputManager inputManager;
-
-
+StageManager stageManager;
 
 int spriteX = 0;
 int spriteY = 0;
@@ -41,9 +40,17 @@ HRESULT InitD3D(HWND hWnd)
 
     D3DPRESENT_PARAMETERS d3dpp;
     ZeroMemory(&d3dpp, sizeof(d3dpp));
-    d3dpp.Windowed = TRUE;
+
+   d3dpp.Windowed = TRUE;
+    //d3dpp.Windowed = false;
+
     d3dpp.SwapEffect = D3DSWAPEFFECT_DISCARD;
-    d3dpp.BackBufferFormat = D3DFMT_UNKNOWN;
+
+   d3dpp.BackBufferWidth = WINDOW_WIDTH;
+   d3dpp.BackBufferHeight = WINDOW_HEIGHT;
+   d3dpp.BackBufferFormat = D3DFMT_UNKNOWN;
+   //d3dpp.BackBufferFormat = D3DFMT_A8B8G8R8;
+
     d3dpp.EnableAutoDepthStencil = TRUE;
     d3dpp.AutoDepthStencilFormat = D3DFMT_D16;
 
@@ -75,6 +82,7 @@ void EngineUpdate() {
     }
 
     inputManager.Update();
+    stageManager.Update();
 }
 
 VOID EngineRender()
@@ -84,6 +92,7 @@ VOID EngineRender()
 
     if (SUCCEEDED(g_pd3dDevice->BeginScene()))
     {      
+        stageManager.Render();
         TextureElement* element = textureManager.GetTexture(1);
 
         element->Sprite->Begin(D3DXSPRITE_ALPHABLEND);
@@ -105,6 +114,7 @@ VOID EngineRender()
 }
 void InitMyStuff() {
     textureManager.LoadTexture(L"banana.png", 1);
+    stageManager.MakeTitleScreen();
 }
 
 int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
@@ -159,7 +169,7 @@ ATOM MyRegisterClass(HINSTANCE hInstance)
     wcex.hIcon          = LoadIcon(hInstance, MAKEINTRESOURCE(IDI_PRAC04));
     wcex.hCursor        = LoadCursor(nullptr, IDC_ARROW);
     wcex.hbrBackground  = (HBRUSH)(COLOR_WINDOW+1);
-    wcex.lpszMenuName   = MAKEINTRESOURCEW(IDC_PRAC04);
+    wcex.lpszMenuName = nullptr;//MAKEINTRESOURCEW(IDC_PRAC04);
     wcex.lpszClassName  = szWindowClass;
     wcex.hIconSm        = LoadIcon(wcex.hInstance, MAKEINTRESOURCE(IDI_SMALL));
 
@@ -171,7 +181,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    hInst = hInstance; // 인스턴스 핸들을 전역 변수에 저장합니다.
 
    HWND hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
-      CW_USEDEFAULT, 0, CW_USEDEFAULT, 0, nullptr, nullptr, hInstance, nullptr);
+      CW_USEDEFAULT,0, WINDOW_WIDTH, WINDOW_HEIGHT, nullptr, nullptr, hInstance, nullptr);
 
    if (!hWnd)
    {

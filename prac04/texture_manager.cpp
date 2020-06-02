@@ -1,4 +1,5 @@
 #include "texture_manager.h"
+#include "global.h"
 
 void TextureManager::LoadTexture(const TCHAR* name, int id) {
 	TextureElement* newElement = new TextureElement();
