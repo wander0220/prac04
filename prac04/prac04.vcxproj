@@ -151,6 +151,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="framework.h" />
+    <ClInclude Include="game_first_stage.h" />
     <ClInclude Include="global.h" />
     <ClInclude Include="input_manager.h" />
     <ClInclude Include="math_until.h" />
@@ -168,6 +169,7 @@
     <ClCompile Include="stage_manager.cpp" />
     <ClCompile Include="title_stage.cpp" />
     <ClCompile Include="texture_manager.cpp" />
+    <ClCompile Include="game_first_stage.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="prac04.rc" />

@@ -6,7 +6,11 @@ TitleStage::TitleStage() {
 }
 void TitleStage::Update()
 {
+    if (inputManager.prevKeyBuffer[VK_LBUTTON] == 1 
+        && inputManager.keyBuffer[VK_LBUTTON] == 1) 
+    {
 
+    }
 }
 void TitleStage::Render()
 {
@@ -16,10 +20,10 @@ void TitleStage::Render()
     element->Sprite->Begin(D3DXSPRITE_ALPHABLEND);
 
     RECT srcRect;
-    srcRect.top = 0;
     srcRect.left = 0;
-    srcRect.bottom = 480;
+    srcRect.top = 0;
     srcRect.right = 640;
+    srcRect.bottom = 480;
 
     D3DXVECTOR3 pos(0, 0, 0);
 

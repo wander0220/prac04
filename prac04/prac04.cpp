@@ -202,6 +202,18 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
     switch (message)
     {
+    case WM_LBUTTONDOWN:
+        inputManager.keyBuffer[VK_LBUTTON]=1;
+        break;
+    case WM_LBUTTONUP:
+        inputManager.keyBuffer[VK_LBUTTON] = 0;
+        break;
+    case WM_RBUTTONDOWN:
+        inputManager.keyBuffer[VK_RBUTTON] = 1;
+        break;
+    case WM_RBUTTONUP:
+        inputManager.keyBuffer[VK_RBUTTON] = 0;
+        break;
     case WM_KEYDOWN:
         inputManager.keyBuffer[wParam] = 1;
         break;
