@@ -24,5 +24,10 @@ void GameFirstStage::Render() {
 
     background->Sprite->Draw(background->Texture, &srcRect, nullptr, &pos
         , D3DCOLOR_XRGB(255, 255, 255));
+
+    pos = { 0, backgroundY - 480, 0 };
+    background->Sprite->Draw(background->Texture, &srcRect, nullptr, &pos
+        , D3DCOLOR_XRGB(255, 255, 255));
+
     background->Sprite->End();
 }
