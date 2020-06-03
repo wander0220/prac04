@@ -7,6 +7,7 @@ public:
 	
 	void Update();
 	void Render();
+	void MakeGameStage();
 
 	void MakeTitleScreen();
 };

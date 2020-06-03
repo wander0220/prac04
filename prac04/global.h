@@ -16,3 +16,4 @@ extern StageManager stageManager;
 #define WINDOW_HEIGHT 480
 
 #define TEX_TITLE_SCREEN 2020
+#define TEX_FRIST_STAGE_SCREEN 2002

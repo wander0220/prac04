@@ -115,6 +115,8 @@ VOID EngineRender()
 void InitMyStuff() {
     textureManager.LoadTexture(L"banana.png", 1);
     textureManager.LoadTexture(L"green.png", TEX_TITLE_SCREEN);
+    textureManager.LoadTexture(L"road.png", TEX_FRIST_STAGE_SCREEN);
+
 
     stageManager.MakeTitleScreen();
 }
