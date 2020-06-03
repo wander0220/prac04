@@ -7,4 +7,6 @@ public:
 
 	void Update() override;
 	void Render() override;
+
+	float backgroundY;
 };
