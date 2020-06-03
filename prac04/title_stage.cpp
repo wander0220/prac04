@@ -18,8 +18,8 @@ void TitleStage::Render()
     RECT srcRect;
     srcRect.top = 0;
     srcRect.left = 0;
-    srcRect.bottom = 640;
-    srcRect.right = 480;
+    srcRect.bottom = 480;
+    srcRect.right = 640;
 
     D3DXVECTOR3 pos(0, 0, 0);
 
