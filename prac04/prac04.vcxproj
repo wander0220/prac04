@@ -166,7 +166,7 @@
     <ClCompile Include="math_util.cpp" />
     <ClCompile Include="prac04.cpp" />
     <ClCompile Include="stage_manager.cpp" />
-    <ClCompile Include="title.cpp" />
+    <ClCompile Include="title_stage.cpp" />
     <ClCompile Include="texture_manager.cpp" />
   </ItemGroup>
   <ItemGroup>

@@ -10,5 +10,7 @@ extern LPDIRECT3DDEVICE9       g_pd3dDevice;
 extern TextureManager    textureManager;
 extern StageManager stageManager;
 
-#define WINDOW_WIDTH 1280
-#define WINDOW_HEIGHT 720
+#define WINDOW_WIDTH 640
+#define WINDOW_HEIGHT 480
+
+#define TEX_TITLE_SCREEN 2020

@@ -93,7 +93,7 @@ VOID EngineRender()
     if (SUCCEEDED(g_pd3dDevice->BeginScene()))
     {      
         stageManager.Render();
-        TextureElement* element = textureManager.GetTexture(1);
+        /*TextureElement* element = textureManager.GetTexture(1);
 
         element->Sprite->Begin(D3DXSPRITE_ALPHABLEND);
 
@@ -106,7 +106,7 @@ VOID EngineRender()
         D3DXVECTOR3 pos(spriteX, spriteY, 0);
         
         element->Sprite->Draw(element->Texture, &rect, nullptr, &pos, D3DCOLOR_XRGB(255, 255, 255));
-        element->Sprite->End();
+        element->Sprite->End();*/
 
         g_pd3dDevice->EndScene();
     }
@@ -114,6 +114,8 @@ VOID EngineRender()
 }
 void InitMyStuff() {
     textureManager.LoadTexture(L"banana.png", 1);
+    textureManager.LoadTexture(L"green.png", TEX_TITLE_SCREEN);
+
     stageManager.MakeTitleScreen();
 }
 

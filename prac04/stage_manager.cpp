@@ -21,6 +21,8 @@ void StageManager::Update()
 }
 void StageManager::Render() 
 {
-	currentStage->Render();
+	if (currentStage != nullptr) {
+		currentStage->Render();
+	}
 }
 
