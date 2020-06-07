@@ -30,8 +30,8 @@ TextureManager textureManager;
 InputManager inputManager;
 StageManager stageManager;
 
-int spriteX = 0;
-int spriteY = 0;
+//int spriteX = 0;
+//int spriteY = 0;
 
 HRESULT InitD3D(HWND hWnd)
 {
@@ -68,7 +68,7 @@ HRESULT InitD3D(HWND hWnd)
     return S_OK;
 }
 void EngineUpdate() {
-    if (inputManager.keyBuffer[VK_LEFT]==1) {
+    /*if (inputManager.keyBuffer[VK_LEFT]==1) {
         spriteX -= 1;
     }
     if (inputManager.keyBuffer[VK_RIGHT] == 1) {
@@ -79,7 +79,7 @@ void EngineUpdate() {
     }
     if (inputManager.keyBuffer[VK_DOWN] == 1) {
         spriteY += 1;
-    }
+    }*/
 
     inputManager.Update();
     stageManager.Update();

@@ -12,7 +12,7 @@ extern TextureManager    textureManager;
 extern InputManager inputManager;
 extern StageManager stageManager;
 
-#define WINDOW_WIDTH 640
+#define WINDOW_WIDTH 1024
 #define WINDOW_HEIGHT 480
 
 #define TEX_TITLE_SCREEN 2020

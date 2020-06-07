@@ -17,7 +17,7 @@ void GameFirstStage::Render() {
     RECT srcRect;
     srcRect.left = 0;
     srcRect.top = 0;
-    srcRect.right = 640;
+    srcRect.right = 1024;
     srcRect.bottom = 480;
 
     D3DXVECTOR3 pos(0, backgroundY, 0);

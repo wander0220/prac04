@@ -6,8 +6,9 @@ TitleStage::TitleStage() {
 }
 void TitleStage::Update()
 {
-    if (inputManager.prevKeyBuffer[VK_LBUTTON] == 1 
-        && inputManager.keyBuffer[VK_LBUTTON] == 0) 
+    if (//inputManager.prevKeyBuffer[VK_LBUTTON] == 1
+        //&& 
+        inputManager.keyBuffer[VK_LBUTTON] == 1) 
     {
         stageManager.MakeGameStage();
     }
@@ -22,7 +23,7 @@ void TitleStage::Render()
     RECT srcRect;
     srcRect.left = 0;
     srcRect.top = 0;
-    srcRect.right = 640;
+    srcRect.right = 1024;
     srcRect.bottom = 480;
 
     D3DXVECTOR3 pos(0, 0, 0);
