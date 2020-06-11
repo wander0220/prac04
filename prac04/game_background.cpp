@@ -4,10 +4,10 @@
 GameBackground::GameBackground() {
     backgroundY = 0;
 }
-void GameBackground::Render() {
+void GameBackground::Update() {
     backgroundY += 0.1f;
 }
-void GameBackground::Update() {
+void GameBackground::Render() {
     TextureElement* background = textureManager.GetTexture(TEX_FRIST_STAGE_SCREEN);
     background->Sprite->Begin(D3DXSPRITE_ALPHABLEND);
 

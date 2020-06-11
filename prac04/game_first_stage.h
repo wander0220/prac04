@@ -13,6 +13,4 @@ public:
 	GameBackground background;
 	Player player;
 
-	float backgroundY;
-
 };
