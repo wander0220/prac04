@@ -1,16 +1,13 @@
-#include "game_first_stage.h"
+#include "game_background.h"
 #include "global.h"
 
-GameFirstStage::GameFirstStage() {
+GameBackground::GameBackground() {
     backgroundY = 0;
 }
-
-void GameFirstStage::Update() {
+void GameBackground::Render() {
     backgroundY += 0.1f;
-    //background.Update();
-    player.Update();
 }
-void GameFirstStage::Render() {
+void GameBackground::Update() {
     TextureElement* background = textureManager.GetTexture(TEX_FRIST_STAGE_SCREEN);
     background->Sprite->Begin(D3DXSPRITE_ALPHABLEND);
 
@@ -30,7 +27,4 @@ void GameFirstStage::Render() {
         , D3DCOLOR_XRGB(255, 255, 255));
 
     background->Sprite->End();
-
-    //background.Render();
-    player.Render();
 }
