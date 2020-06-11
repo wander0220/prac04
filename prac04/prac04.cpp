@@ -29,6 +29,7 @@ LPDIRECT3DDEVICE9       g_pd3dDevice = NULL;
 TextureManager textureManager;
 InputManager inputManager;
 StageManager stageManager;
+GameSystem gameSystem;
 
 float deltaTime = 0.3f;
 DWORD prevTime;
@@ -91,21 +92,6 @@ VOID EngineRender()
     if (SUCCEEDED(g_pd3dDevice->BeginScene()))
     {
         stageManager.Render();
-        /*TextureElement* element = textureManager.GetTexture(1);
-
-        element->Sprite->Begin(D3DXSPRITE_ALPHABLEND);
-
-        RECT rect;
-        rect.top = 0;
-        rect.left = 0;
-        rect.bottom = 64;
-        rect.right = 64;
-
-        D3DXVECTOR3 pos(spriteX, spriteY, 0);
-
-        element->Sprite->Draw(element->Texture, &rect, nullptr, &pos, D3DCOLOR_XRGB(255, 255, 255));
-        element->Sprite->End();*/
-
         g_pd3dDevice->EndScene();
     }
     g_pd3dDevice->Present(NULL, NULL, NULL, NULL);

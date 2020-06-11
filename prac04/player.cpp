@@ -28,8 +28,10 @@ void Player::Update() {
         playerY += speed * deltaTime;
     }
 
-    if (inputManager.prevKeyBuffer['Z'] == 1 && inputManager.keyBuffer['Z'] == 0) {
+    if (inputManager.prevKeyBuffer['Z'] == 1 && inputManager.keyBuffer['Z'] == 0) 
+    {
         //미사일 발사
+        gameSystem.GeneratePlayerBulletSpread(playerX, playerY-30);
 
     }
 

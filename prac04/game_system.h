@@ -6,5 +6,9 @@ using namespace std;
 class Bullet;
 class GameSystem {
 public:
-	vector<Bullet> bullet;
+	vector<Bullet*> bullets;
+
+	void Update();
+	void Render();
+	void GeneratePlayerBulletSpread(int x, int y);
 };
