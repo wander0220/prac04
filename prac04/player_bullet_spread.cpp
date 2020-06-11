@@ -1,5 +1,5 @@
 #include "player_bullet_spread.h"
-PlayerBulletSpread::PlayerBulletSpread(int x, int y, float vx, float vy) {
+PlayerBulletSpread::PlayerBulletSpread(float x, float y, float vx, float vy) {
 	posX = x;
 	posY = y;
 	velX = vx;
@@ -9,7 +9,6 @@ PlayerBulletSpread::PlayerBulletSpread(int x, int y, float vx, float vy) {
 void PlayerBulletSpread::Update() {
     posX += velX;
     posY += velY;
-
 }
 void PlayerBulletSpread::Render() {
 
