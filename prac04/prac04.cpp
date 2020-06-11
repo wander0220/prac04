@@ -30,8 +30,8 @@ TextureManager textureManager;
 InputManager inputManager;
 StageManager stageManager;
 
-//int spriteX = 0;
-//int spriteY = 0;
+float deltaTime = 0.3f;
+DWORD prevTime;
 
 HRESULT InitD3D(HWND hWnd)
 {
@@ -68,18 +68,15 @@ HRESULT InitD3D(HWND hWnd)
     return S_OK;
 }
 void EngineUpdate() {
-    /*if (inputManager.keyBuffer[VK_LEFT]==1) {
-        spriteX -= 1;
+
+    DWORD cur = GetTickCount();
+    DWORD diff = cur - prevTime;
+    deltaTime = diff / (1000.f);
+
+    if (deltaTime > 0.016) {
+        deltaTime = 0.016f;
     }
-    if (inputManager.keyBuffer[VK_RIGHT] == 1) {
-        spriteX += 1;
-    }
-    if (inputManager.keyBuffer[VK_UP] == 1) {
-        spriteY -= 1;
-    }
-    if (inputManager.keyBuffer[VK_DOWN] == 1) {
-        spriteY += 1;
-    }*/
+    prevTime = cur;
 
     stageManager.Update();
     inputManager.Update();
@@ -121,6 +118,8 @@ void InitMyStuff() {
     textureManager.LoadTexture(L"player_bullet.png", GAME_PLAYER_BULLET);
 
     stageManager.MakeTitleScreen();
+
+    prevTime = GetTickCount();
 }
 
 int APIENTRY wWinMain(_In_ HINSTANCE hInstance,

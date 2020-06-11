@@ -14,6 +14,8 @@ extern InputManager inputManager;
 extern StageManager stageManager;
 extern GameSystem gameSystem;
 
+extern float deltaTime;
+
 #define WINDOW_WIDTH 1024
 #define WINDOW_HEIGHT 480
 
@@ -21,3 +23,4 @@ extern GameSystem gameSystem;
 #define TEX_FRIST_STAGE_SCREEN 2002
 #define GAME_PLAYER_BODY 2001
 #define GAME_PLAYER_BULLET 2010
+

@@ -1,5 +1,5 @@
-#include "player.h"
 #include "global.h"
+#include "player.h"
 
 #define PLAYER_BODY_WIDTH 64
 #define PLAYER_BODY_WIDTH_HALF 32
@@ -12,20 +12,20 @@ Player::Player() {
     playerX = WINDOW_WIDTH / 2;
     playerY = WINDOW_HEIGHT * 0.9f;
 
-    speed = 0.5f;
+    speed = 300;
 }
 void Player::Update() {
     if (inputManager.keyBuffer[VK_LEFT] == 1) {
-        playerX -= speed;
+        playerX -= speed * deltaTime;
     }
     if (inputManager.keyBuffer[VK_RIGHT] == 1) {
-        playerX += speed;
+        playerX += speed * deltaTime;
     }
     if (inputManager.keyBuffer[VK_UP] == 1) {
-        playerY -= speed;
+        playerY -= speed * deltaTime;
     }
     if (inputManager.keyBuffer[VK_DOWN] == 1) {
-        playerY += speed;
+        playerY += speed * deltaTime;
     }
 
     if (inputManager.prevKeyBuffer['Z'] == 1 && inputManager.keyBuffer['Z'] == 0) {

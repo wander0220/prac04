@@ -8,5 +8,5 @@ public:
 	float playerX;
 	float playerY;
 
-	float speed;
+	int speed;
 };
