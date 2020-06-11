@@ -7,6 +7,8 @@ PlayerBulletSpread::PlayerBulletSpread(int x, int y, float vx, float vy) {
 
 }
 void PlayerBulletSpread::Update() {
+    posX += velX;
+    posY += velY;
 
 }
 void PlayerBulletSpread::Render() {
