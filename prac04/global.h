@@ -21,6 +21,8 @@ extern float deltaTime;
 
 #define TEX_TITLE_SCREEN 2020
 #define TEX_FRIST_STAGE_SCREEN 2002
+
 #define GAME_PLAYER_BODY 2001
 #define GAME_PLAYER_BULLET 2010
+#define GAME_ENEMY_BODY 2003
 

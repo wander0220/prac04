@@ -97,11 +97,13 @@ VOID EngineRender()
     g_pd3dDevice->Present(NULL, NULL, NULL, NULL);
 }
 void InitMyStuff() {
-    textureManager.LoadTexture(L"banana.png", 1);
-    textureManager.LoadTexture(L"green.png", TEX_TITLE_SCREEN);
+    //textureManager.LoadTexture(L"banana.png", 1);
+    textureManager.LoadTexture(L"game_menu.png", TEX_TITLE_SCREEN);
     textureManager.LoadTexture(L"road.png", TEX_FRIST_STAGE_SCREEN);
     textureManager.LoadTexture(L"player.png", GAME_PLAYER_BODY);
     textureManager.LoadTexture(L"player_bullet.png", GAME_PLAYER_BULLET);
+    textureManager.LoadTexture(L"enemy01.png", GAME_ENEMY_BODY);
+
 
     stageManager.MakeTitleScreen();
 

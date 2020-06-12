@@ -11,6 +11,9 @@ void GameSystem::Render() {
 	for (int i = 0; i < bullets.size(); i++) {
 		bullets[i]->Render();
 	}
+	//for (int i = 0; i < bullets.size(); i++) {
+	//	bullets[i]->Render();
+	//}
 }
 void GameSystem::GeneratePlayerBulletSpread(int x, int y)
 {
