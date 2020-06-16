@@ -6,6 +6,7 @@ public:
 	void Update() override;
 	void Render() override;
 
-	float enemyX;
-	float enemyY;
+	int speed;
+	float posX;
+	float posY;
 };
