@@ -6,6 +6,7 @@ void GameSystem::Update() {
 	for (int i = 0; i < bullets.size(); i++) {
 		bullets[i]->Update();
 	}
+	enemyA.Update();
 }
 void GameSystem::Render() {
 	for (int i = 0; i < bullets.size(); i++) {
@@ -14,6 +15,8 @@ void GameSystem::Render() {
 	//for (int i = 0; i < bullets.size(); i++) {
 	//	bullets[i]->Render();
 	//}
+	enemyA.Render();
+
 }
 void GameSystem::GeneratePlayerBulletSpread(int x, int y)
 {

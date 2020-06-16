@@ -1,6 +1,7 @@
 #pragma once
 #include "enemy.h"
-class EnemyA : public Enemy {
+class EnemyA : public Enemy 
+{
 public:
 	EnemyA();
 	void Update() override;

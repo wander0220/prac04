@@ -3,19 +3,18 @@
 
 EnemyA::EnemyA(){
 
-    posX = WINDOW_WIDTH / 2;
-    posY = WINDOW_HEIGHT * 0.2f;
+    posX =30;
+    posY = 50;
 
     speed = 300;
 }
 void EnemyA::Update() 
 {
-    //posX += speed * deltaTime;
-    posY += speed * deltaTime;
+
 }
 void EnemyA::Render() 
 {
-    TextureElement* enemy = textureManager.GetTexture(GAME_ENEMY_BODY);
+    TextureElement* enemy = textureManager.GetTexture(GAME_PLAYER_BODY);
     enemy->Sprite->Begin(D3DXSPRITE_ALPHABLEND);
 
     RECT srcRect;
@@ -24,9 +23,8 @@ void EnemyA::Render()
     srcRect.right = 16;
     srcRect.bottom = 16;
 
-
-    D3DXVECTOR3 pos(32,  32, 0);
-
+    D3DXVECTOR3 pos(posX - 8, posY - 8, 0);
+   
     enemy->Sprite->Draw(enemy->Texture, &srcRect, nullptr, &pos
         , D3DCOLOR_XRGB(255, 255, 255));
 

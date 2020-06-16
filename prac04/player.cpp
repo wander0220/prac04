@@ -52,8 +52,8 @@ void Player::Update() {
 }
 void Player::Render() {
 
-    TextureElement* background = textureManager.GetTexture(GAME_PLAYER_BODY);
-    background->Sprite->Begin(D3DXSPRITE_ALPHABLEND);
+    TextureElement* player = textureManager.GetTexture(GAME_PLAYER_BODY);
+    player->Sprite->Begin(D3DXSPRITE_ALPHABLEND);
 
     RECT srcRect;
     srcRect.left = 0;
@@ -63,8 +63,8 @@ void Player::Render() {
 
     D3DXVECTOR3 pos(playerX - PLAYER_BODY_WIDTH_HALF, playerY - PLAYER_BODY_HEIGHT_HALF, 0);
 
-    background->Sprite->Draw(background->Texture, &srcRect, nullptr, &pos
+    player->Sprite->Draw(player->Texture, &srcRect, nullptr, &pos
         , D3DCOLOR_XRGB(255, 255, 255));
 
-    background->Sprite->End();
+    player->Sprite->End();
 }

@@ -2,6 +2,7 @@
 #include "Stage.h"
 #include "game_background.h"
 #include "player.h"
+#include "enemy_a.h"
 
 class GameFirstStage : public Stage {
 public:
