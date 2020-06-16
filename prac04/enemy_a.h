@@ -3,7 +3,7 @@
 class EnemyA : public Enemy 
 {
 public:
-	EnemyA();
+	EnemyA(float);
 	void Update() override;
 	void Render() override;
 

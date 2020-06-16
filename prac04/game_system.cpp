@@ -1,21 +1,41 @@
 #include "game_system.h"
 #include "global.h"
 #include "player_bullet_spread.h"
-
+#include "enemy.h"
+#include "enemy_a.h"
+GameSystem::GameSystem() {
+	enemyATime = 0;
+}
 void GameSystem::Update() {
+
 	for (int i = 0; i < bullets.size(); i++) {
 		bullets[i]->Update();
 	}
-	enemyA.Update();
+	for (int i = 0; i < enemies.size(); i++) {
+		enemies[i]->Update();
+	}
 }
 void GameSystem::Render() {
+
+
+	enemyATime += deltaTime;
+
+	if (rand() % 100 < 5)
+	{
+		if (enemyATime > 0.1f)
+		{
+			GenerateEnemyA();
+			enemyATime = 0;
+		}
+	}
+
 	for (int i = 0; i < bullets.size(); i++) {
 		bullets[i]->Render();
 	}
-	//for (int i = 0; i < bullets.size(); i++) {
-	//	bullets[i]->Render();
-	//}
-	enemyA.Render();
+	for (int i = 0; i < enemies.size(); i++) {
+		enemies[i]->Render();
+	}
+	GenerateEnemyA();
 
 }
 void GameSystem::GeneratePlayerBulletSpread(int x, int y)
@@ -42,4 +62,12 @@ void GameSystem::GeneratePlayerBulletSpread(int x, int y)
 		bullets.push_back(a);
 	}
 
+}
+
+void GameSystem::GenerateEnemyA() {
+	for (int i = 0; i <= 10; i++) {
+		float posX = (i + 1) * 30;
+		Enemy* enemyA = new EnemyA(posX);
+		enemies.push_back(enemyA);
+	}
 }

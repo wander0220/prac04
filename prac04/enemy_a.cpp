@@ -1,16 +1,16 @@
 #include "enemy_a.h"
 #include "global.h"
 
-EnemyA::EnemyA(){
+EnemyA::EnemyA(float vx){
 
-    posX =30;
+    posX = vx;
     posY = 50;
 
-    speed = 300;
+    //speed = 300;
 }
 void EnemyA::Update() 
 {
-    posY += deltaTime * 300;
+    //posY += deltaTime * 300;
 
 }
 void EnemyA::Render() 
