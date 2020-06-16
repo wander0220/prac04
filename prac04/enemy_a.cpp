@@ -10,6 +10,7 @@ EnemyA::EnemyA(){
 }
 void EnemyA::Update() 
 {
+    posY += deltaTime * 300;
 
 }
 void EnemyA::Render() 
