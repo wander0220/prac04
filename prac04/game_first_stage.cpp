@@ -2,6 +2,7 @@
 #include "global.h"
 
 GameFirstStage::GameFirstStage() {
+    gameSystem.ClearAll();
 }
 
 void GameFirstStage::Update() {

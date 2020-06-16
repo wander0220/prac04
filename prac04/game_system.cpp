@@ -38,6 +38,10 @@ void GameSystem::Render() {
 	GenerateEnemyA();
 
 }
+void GameSystem::ClearAll() {
+	bullets.clear();
+	enemies.clear();
+}
 void GameSystem::GeneratePlayerBulletSpread(int x, int y)
 {
 	float speed = 4;

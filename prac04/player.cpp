@@ -12,7 +12,7 @@ Player::Player() {
     playerX = WINDOW_WIDTH / 2;
     playerY = WINDOW_HEIGHT * 0.9f;
 
-    speed = 300;
+    speed = 500;
 }
 void Player::Update() {
     if (inputManager.keyBuffer[VK_LEFT] == 1) {

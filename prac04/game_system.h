@@ -12,6 +12,7 @@ public:
 	vector<Enemy*> enemies;
 
 	GameSystem();
+	void ClearAll();
 	void Update();
 	void Render();
 	void GeneratePlayerBulletSpread(int x, int y);
