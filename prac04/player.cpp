@@ -30,6 +30,9 @@ void Player::Update() {
 
     if (inputManager.prevKeyBuffer['Z'] == 1 && inputManager.keyBuffer['Z'] == 0) 
     {
+        soundManager.sndPlayerBullet->Reset();
+        soundManager.sndPlayerBullet->Play(0, 0, 1);
+
         //미사일 발사
         gameSystem.GeneratePlayerBulletSpread(playerX, playerY-30);
 

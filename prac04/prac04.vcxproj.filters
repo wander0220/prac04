@@ -75,6 +75,12 @@
     <ClInclude Include="player_bullet_straight.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="SDKsound.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="SDKwavefile.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="prac04.cpp">
@@ -108,6 +114,12 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="enemy_a.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="SDKsound.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="SDKwavefile.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

@@ -4,13 +4,13 @@
 EnemyA::EnemyA(float vx){
 
     posX = vx;
-    posY = 50;
+    posY = -50;
 
     //speed = 300;
 }
 void EnemyA::Update() 
 {
-    //posY += deltaTime * 300;
+    posY += deltaTime * 300;
 
 }
 void EnemyA::Render() 

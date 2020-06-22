@@ -1,10 +1,9 @@
 ﻿// prac04.cpp : 애플리케이션에 대한 진입점을 정의합니다.
 //
-
+#include <Windows.h>
 #include "framework.h"
 #include "prac04.h"
 
-#include <Windows.h>
 #include "global.h"
 #include "input_manager.h"
 #include "texture_manager.h"
@@ -30,9 +29,16 @@ TextureManager textureManager;
 InputManager inputManager;
 StageManager stageManager;
 GameSystem gameSystem;
+CSoundManager soundManager;
+
 
 float deltaTime = 0.3f;
 DWORD prevTime;
+
+bool GameBool = true;
+
+int iMouseX;
+int iMouseY;
 
 HRESULT InitD3D(HWND hWnd)
 {
@@ -69,6 +75,9 @@ HRESULT InitD3D(HWND hWnd)
     return S_OK;
 }
 void EngineUpdate() {
+    if (inputManager.keyBuffer[VK_ESCAPE] == 1) {
+        GameBool = false;
+    }
 
     DWORD cur = GetTickCount();
     DWORD diff = cur - prevTime;
@@ -96,6 +105,17 @@ VOID EngineRender()
     }
     g_pd3dDevice->Present(NULL, NULL, NULL, NULL);
 }
+
+void InitMySound(HWND hWnd)
+{
+    soundManager.Initialize(hWnd, DSSCL_NORMAL);
+    {
+        WCHAR filename[256];
+        swprintf_s<256>(filename, L"sfx/lazer1.wav");
+        soundManager.Create(&soundManager.sndPlayerBullet, filename, DSBCAPS_CTRLVOLUME);
+    }
+}
+
 void InitMyStuff() {
     //textureManager.LoadTexture(L"banana.png", 1);
     textureManager.LoadTexture(L"game_menu.png", TEX_TITLE_SCREEN);
@@ -103,6 +123,7 @@ void InitMyStuff() {
     textureManager.LoadTexture(L"player.png", GAME_PLAYER_BODY);
     textureManager.LoadTexture(L"player_bullet.png", GAME_PLAYER_BULLET);
     textureManager.LoadTexture(L"enemy01.png", GAME_ENEMY_BODY);
+    textureManager.LoadTexture(L"button.png", TITLE_BUTTON);
 
 
     stageManager.MakeTitleScreen();
@@ -133,7 +154,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 
     MSG msg;
     ZeroMemory(&msg, sizeof(msg));
-    while (msg.message != WM_QUIT)
+    while (msg.message != WM_QUIT && GameBool)
     {
         if (PeekMessage(&msg, NULL, 0U, 0U, PM_REMOVE))
         {
@@ -162,7 +183,7 @@ ATOM MyRegisterClass(HINSTANCE hInstance)
     wcex.hIcon = LoadIcon(hInstance, MAKEINTRESOURCE(IDI_PRAC04));
     wcex.hCursor = LoadCursor(nullptr, IDC_ARROW);
     wcex.hbrBackground = (HBRUSH)(COLOR_WINDOW + 1);
-    wcex.lpszMenuName = nullptr;//MAKEINTRESOURCEW(IDC_PRAC04);
+    wcex.lpszMenuName = nullptr;// MAKEINTRESOURCEW(IDC_PRAC04);
     wcex.lpszClassName = szWindowClass;
     wcex.hIconSm = LoadIcon(wcex.hInstance, MAKEINTRESOURCE(IDI_SMALL));
 
@@ -183,6 +204,8 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 
     InitD3D(hWnd);
     InitMyStuff();
+    InitMySound(hWnd);
+
     ShowWindow(hWnd, nCmdShow);
     UpdateWindow(hWnd);
 
@@ -205,6 +228,10 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         case WM_RBUTTONUP:
             inputManager.keyBuffer[VK_RBUTTON] = 0;
             break;*/
+    case WM_MOUSEMOVE:
+        iMouseY = (short)HIWORD(lParam);
+        iMouseX = (short)LOWORD(lParam);
+        break;
     case WM_KEYDOWN:
         inputManager.keyBuffer[wParam] = 1;
         break;

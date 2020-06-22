@@ -20,9 +20,9 @@ void GameSystem::Render() {
 
 	enemyATime += deltaTime;
 
-	if (rand() % 100 < 5)
+	if (rand() % 100 < 3)
 	{
-		if (enemyATime > 0.1f)
+		if (enemyATime > 0.9f)
 		{
 			GenerateEnemyA();
 			enemyATime = 0;
@@ -69,9 +69,9 @@ void GameSystem::GeneratePlayerBulletSpread(int x, int y)
 }
 
 void GameSystem::GenerateEnemyA() {
-	for (int i = 0; i <= 10; i++) {
-		float posX = (i + 1) * 30;
+	//for (int i = 0; i <= 10; i++) {
+		float posX = rand()%WINDOW_WIDTH + 100;
 		Enemy* enemyA = new EnemyA(posX);
 		enemies.push_back(enemyA);
-	}
+	//}
 }
